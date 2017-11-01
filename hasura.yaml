@@ -1,4 +1,5 @@
-description: Blank template for a Hasura project
+description: A basic Hasura project with a react and a nodejs-express app running
+  on it
 keywords: base, getting-started
-name: base
+name: hello-react
 platformVersion: v0.15.3
