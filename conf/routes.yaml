@@ -1,5 +1,5 @@
 # HTTP routes configured on Hasura API Gateway
-# Each block refers to a sub-domain. This is translated to a nginx location block which proxy passes all requests 
+# Each block refers to a sub-domain. This is translated to a nginx location block which proxy passes all requests
 # on the URL to the upstream service
 # To see actual endpoints for these routes, use `$ hasura cluster status`
 # Example route:
@@ -10,7 +10,7 @@
 #       name: auth
 #       namespace: {{ cluster.metadata.namespaces.user }}
 #     upstreamServicePath: /            # Upstream path
-#     upstreamServicePort: 80           # Port of the service 
+#     upstreamServicePort: 80           # Port of the service
 #     corsPolicy: allow_all             # CORS policy for this route, "allow_all" or a list of allowed domains
 #     enableAuth: true                  # Enable session middleware to resolve auth tokens to user-id and role
 #     enableCORS: true                  # Enable CORS policies on this route
@@ -50,3 +50,16 @@ notify:
     upstreamServicePath: /
     upstreamServicePort: 80
     corsPolicy: allow_all
+ui:
+  /:
+    corsPolicy: null
+    enableAuth: true
+    enableCORS: true
+    enableWebsockets: true
+    locationDirectives: ""
+    restrictToRoles: []
+    upstreamService:
+      name: ui
+      namespace: '{{ cluster.metadata.namespaces.user }}'
+    upstreamServicePath: /
+    upstreamServicePort: 80

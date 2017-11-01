@@ -5,10 +5,13 @@ remotes:
   # Default remote to push code and configuration
   {{ cluster.name }}:
     <<: {}
-    
+    '{{ cluster.metadata.namespaces.user }}.ui':
+      ui:
+        dockerfile: services/ui/Dockerfile
+        path: services/ui
     # Add new remotes here above this line
     # Example:
-    
+
     # remote-name:
     #   namespace.service-name:
     #     container-name:

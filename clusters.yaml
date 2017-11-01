@@ -1,1 +1,8 @@
-# Info about all the clusters added to this project are kept here
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: hasura
+  data: null
+  kubeContext: h34-alertness85-stg
+  name: h34-alertness85-stg
+  services: null
