@@ -11,5 +11,5 @@
 # Default permissions are admin-only
 # Volume defines the Kubernetes volume mounted for storing the files, this is usually filled in from the metadata
 
-hookUrl: null
+hookUrl: http://localhost:8080/v1/hooks/user-read-write
 volume: {{ cluster.metadata.filestore.volume|json }}
