@@ -63,3 +63,16 @@ ui:
       namespace: '{{ cluster.metadata.namespaces.user }}'
     upstreamServicePath: /
     upstreamServicePort: 80
+api:
+  /:
+    corsPolicy: null
+    enableAuth: true
+    enableCORS: true
+    enableWebsockets: true
+    locationDirectives: ""
+    restrictToRoles: []
+    upstreamService:
+      name: api
+      namespace: '{{ cluster.metadata.namespaces.user }}'
+    upstreamServicePath: /
+    upstreamServicePort: 80

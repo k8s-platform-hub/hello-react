@@ -9,6 +9,10 @@ remotes:
       ui:
         dockerfile: services/ui/Dockerfile
         path: services/ui
+    '{{ cluster.metadata.namespaces.user }}.api':
+      api:
+        dockerfile: services/api/Dockerfile
+        path: services/api
     # Add new remotes here above this line
     # Example:
 
