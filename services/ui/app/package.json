@@ -14,8 +14,8 @@
     "uuid": "^3.1.0"
   },
   "scripts": {
-    "start": "REACT_APP_CLUSTER_NAME=h34-excise98-stg react-scripts start",
-    "build": "REACT_APP_CLUSTER_NAME=h34-excise98-stg react-scripts build",
+    "start": "REACT_APP_CLUSTER_NAME=h34-fisherman22-stg react-scripts start",
+    "build": "REACT_APP_CLUSTER_NAME=h34-fisherman22-stg react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
