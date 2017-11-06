@@ -1,12 +1,10 @@
 # conf
 
-This directory holds configuration for clusters added to this Hasura project. The configuration is templated and used for managing multiple clusters.
+This directory has the configuration to deploy your project on any Hasura cluster. With the secrets (like API keys, client secrets) and this configuration, you can deploy the project on any Hasura cluster.
 
-Templates are written in [pongo2](https://github.com/flosch/pongo2), a Django-syntax like templating-language.
+The configuration is templated so that it can be seamlessly used across multiple clusters. Templating also helps with the management of different kinds of clusters, for example you may have a dev, staging and production clusters where the configuration might differ slightly. The templates are written in [pongo2](https://github.com/flosch/pongo2), a jinja like templating language.
 
-A cluster in a hasura project is a kubernetes cluster with Hasura platform installed on it. The configuration that defines a cluster is derived by compiling the info present in this directory. Each file describes a particular part of the configuration.
-
-While rendering the template, a context variable called `cluster` will be available. This is an extension of the cluster object present in `clusters.yaml` file. Apart from the keys present in `clusters.yaml`, a key called `metadata` with some cluster specific information will be present.
+A context variable called `cluster` is available to be used in the templates. This is an extension of the cluster object present in `clusters.yaml` file. Apart from the keys present in `clusters.yaml`, a key called `metadata` with some cluster specific information will be present.
 
 If you need to add your own variables, you can add them under the `data` key in `clusters.yaml` and this will be available as `cluster.data`
 
@@ -63,4 +61,3 @@ metadata:
       name: redis-pv
 data: null
 ```
-All these keys will be available for templating as `cluster`

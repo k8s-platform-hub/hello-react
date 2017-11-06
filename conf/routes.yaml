@@ -1,6 +1,9 @@
-# HTTP routes configured on Hasura API Gateway
-# Each block refers to a sub-domain. This is translated to a nginx location block which proxy passes all requests
-# on the URL to the upstream service
+# HTTP routes configured on the Gateway
+# -------------------------------------
+# Each block refers to a sub-domain. This is translated to an
+# nginx location block which proxy passes all requests on the
+# URL to the upstream service
+#
 # To see actual endpoints for these routes, use `$ hasura cluster status`
 # Example route:
 

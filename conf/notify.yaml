@@ -1,6 +1,12 @@
 # Configuration for Hasura Notify service
-# Set a provider as default and add the required credentials to use them
+#
+# All options are configured to read from the secret called hasura-secrets
+# To enable a provider:
+# 1. Add the required secrets. Checkout hasura secrets --help for more information
+# 2. modify the default value to the provider that you want
+
 email:
+  # default can take values 'SMTP' or 'SparkPost
   default: null
   providers:
     smtpConf:
@@ -20,6 +26,7 @@ email:
           key: notify.sparkpost.key
           name: hasura-secrets
 sms:
+  # default can take values 'MSG91' or 'Twilio'
   default: null
   providers:
     msg91Conf:
