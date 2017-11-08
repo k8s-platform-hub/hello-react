@@ -1,10 +1,23 @@
 # Defines continuous integration for the project
-# registry defines a custom docker registry to push built images
+
+# registry defines a custom docker registry to push images that are built on the cluster
 registry: {{ cluster.metadata.registry|json }}
+
+# remotes define which microservices has to be updated when code is pushed to the remote
 remotes:
+  # Example:
+
+  # remote-name:
+  #   namespace.service-name:
+  #     container-name:
+  #       path: microservices/app
+  #       dockerfile: microservices/app/Dockerfile
+
   # Default remote to push code and configuration
-  {{ cluster.name }}:
-    <<: {}
+  {{ cluster.name }}:        # DO NOT edit this line
+    <<: {}                   # DO NOT edit this line
+
+    # Add output of `hasura conf generate-remote` below this line
     '{{ cluster.metadata.namespaces.user }}.ui':
       ui:
         dockerfile: services/ui/Dockerfile
@@ -13,11 +26,3 @@ remotes:
       api:
         dockerfile: services/api/Dockerfile
         path: services/api
-    # Add new remotes here above this line
-    # Example:
-
-    # remote-name:
-    #   namespace.service-name:
-    #     container-name:
-    #       path: services/app
-    #       dockerfile: services/app/Dockerfile

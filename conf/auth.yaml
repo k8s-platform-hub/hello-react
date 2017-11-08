@@ -146,14 +146,14 @@ password:
 #      name: hasura-secrets
 
 # Configuration for adding a custom provider
-# customProviders:
+#customProviders:
 # myCustomProvider:
 #   enabled: "true",
 #   hooks:
-#     signup: "https://mycustomprovider.test42.hasura-app.io/signup
-#     login: "https://mycustomprovider.test42.hasura-app.io/login
-#     merge: "https://mycustomprovider.test42.hasura-app.io/merge
-#   defaultRoles: ["admin"]
+#     signup: "https://mycustomprovider.test42.hasura-app.io/signup"
+#     login: "https://mycustomprovider.test42.hasura-app.io/login"
+#     merge: "https://mycustomprovider.test42.hasura-app.io/merge"
+#  defaultRoles: ["admin"]
 
 
 # The below fields are used by the platform when initializing. Please do not
