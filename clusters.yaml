@@ -1,14 +1,7 @@
-# Stores the information about the clusters added to this project
-#
-# - This file gets populated with the cluster information when you run
-#   `hasura cluster add`
-# - When your project is published on hasura hub, this file will not
-#   have any information about your clusters
-- alias: hasura
+- alias: hasrua
   config:
     configmap: controller-conf
     namespace: hasura
   data: null
-  kubeContext: h34-fisherman22-stg
-  name: h34-fisherman22-stg
-  services: null
+  kubeContext: clarification20
+  name: clarification20
