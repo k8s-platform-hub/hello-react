@@ -15,7 +15,6 @@ This is the right place to start if you are planning to build or want to learn t
 * [Migrate from an existing react app](#migrate-from-an-existing-react-app)
 * [Local development](#local-development)
 * [Project Structure](#project-structure)
-* [FAQ](#faq)
 
 ## Introduction
 
@@ -204,15 +203,6 @@ $ hasura forward -s data -n hasura --local-port 6432 --remote-port 8080
 $ cd services/api/app
 $ ENVIRONMENT=dev npm start
 ```
-
-## FAQ
-
-- How do I check the logs for my custom service ?
-- I want to change the subdomain from ui to something else. How do I do that ?
-- Permissions on filestore
-- How do I add a new custom service ?
-- I am stuck, what do I do now ?
-
 
 [data1]: https://github.com/hasura/hello-react/blob/master/readme-assets/data-1.png
 [data2]: https://github.com/hasura/hello-react/blob/master/readme-assets/data-2.png
