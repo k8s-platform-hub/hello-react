@@ -20,9 +20,9 @@ remotes:
     # Add output of `hasura conf generate-remote` below this line
     '{{ cluster.metadata.namespaces.user }}.ui':
       ui:
-        dockerfile: services/ui/Dockerfile
-        path: services/ui
+        dockerfile: microservices/ui/Dockerfile
+        path: microservices/ui
     '{{ cluster.metadata.namespaces.user }}.api':
       api:
-        dockerfile: services/api/Dockerfile
-        path: services/api
+        dockerfile: microservices/api/Dockerfile
+        path: microservices/api
