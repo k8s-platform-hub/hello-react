@@ -1,0 +1,5 @@
+description: A basic Hasura project with a react and a nodejs-express app running
+  on it
+keywords: getting-started, react, node, nodejs, express, javascript
+name: hello-react
+platformVersion: v0.15.3

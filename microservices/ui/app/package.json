@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "dns": "^0.2.2",
+    "fetch": "^1.1.0",
+    "material-ui": "^0.19.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.14",
+    "react-split-pane": "^0.1.68",
+    "uuid": "^3.1.0"
+  },
+  "scripts": {
+    "start": "REACT_APP_CLUSTER_NAME=h34-fisherman22-stg react-scripts start",
+    "build": "REACT_APP_CLUSTER_NAME=h34-fisherman22-stg react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
