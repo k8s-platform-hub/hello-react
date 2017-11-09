@@ -1,7 +1,7 @@
-- alias: hasrua
+- alias: hasura
   config:
     configmap: controller-conf
     namespace: hasura
   data: null
-  kubeContext: clarification20
-  name: clarification20
+  kubeContext: babysitting89
+  name: babysitting89
