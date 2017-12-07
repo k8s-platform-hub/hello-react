@@ -1,17 +1,16 @@
-FROM mhart/alpine-node:7.10
+FROM node:8
 
-# APK is the alpine-pakage-manager Python gcc is need for node-sass
-RUN apk add --no-cache make gcc g++ python
+RUN apt-get update && apt-get install -y build-essential python
 
 #Install deps
 RUN mkdir /app
 COPY app/package.json /app/package.json
 RUN cd /app && npm install
+RUN npm -g install serve
 
 #Add all source code
 ADD app /app/
 RUN cd /app && npm run build
-RUN npm -g install serve
 
 WORKDIR /app
 
