@@ -52,9 +52,9 @@ This will give you your cluster status like so
 
 ```sh
 INFO Status:                                      
-Cluster Name:       h34-excise98-stg
+Cluster Name:       h34-fisherman22-stg
 Cluster Alias:      hasura
-Kube Context:       h34-excise98-stg
+Kube Context:       h34-fisherman22-stg
 Platform Version:   v0.15.3
 Cluster State:      Synced
 ```
@@ -63,8 +63,8 @@ Keep a note of your cluster name. Alternatively, you can also go to your [hasura
 
 ### Step 3: Deploying on a hasura cluster
 
-1. Open the package.json file at `service/ui/app/`
-2. Find the key `scripts` and then replace `cluster-name` with the name of your cluster (in this case, `h34-excise98-stg`) in the `build` & `start` key.
+1. Open the package.json file at `microservices/ui/app/`
+2. Find the key `scripts` and then replace `cluster-name` with the name of your cluster (in this case, `h34-fisherman22-stg`) in the `build` & `start` key.
 
 To deploy your app:
 
@@ -74,7 +74,7 @@ $ git commit -m "Initial Commit"
 $ git push hasura master
 ```
 
-Once the above commands are executed successfully, head over to `https://ui.cluster-name.hasura-app.io` (in this case `https://ui.h34-excise98-stg.hasura-app.io`) to view your react app.
+Once the above commands are executed successfully, head over to `https://ui.cluster-name.hasura-app.io` (in this case `https://ui.h34-fisherman22-stg.hasura-app.io`) to view your react app.
 
 ### Api console
 
@@ -86,7 +86,7 @@ $ hasura api-console
 
 ## Data APIs
 
-Hasura provides ready to use data apis to make powerful data queries on your tables. This means that you have ready-to-use JSON apis on any tables created. The url to be used to make these queries is always of the type: `https://data.cluster-name.hasura-app.io/v1/query` (in this case `https://data.h34-excise98-stg.hasura-app.io`)
+Hasura provides ready to use data apis to make powerful data queries on your tables. This means that you have ready-to-use JSON apis on any tables created. The url to be used to make these queries is always of the type: `https://data.cluster-name.hasura-app.io/v1/query` (in this case `https://data.h34-fisherman22-stg.hasura-app.io`)
 
 As mentioned earlier, this quickstart app comes with two pre-created tables `author` and `article`.
 
@@ -114,7 +114,7 @@ Alternatively, you can also view the schema for these tables on the api console 
 
 This means that you can now leverage the hasura data queries to perform CRUD operations on these tables.
 
-The react app uses these data apis to show the respective data, to see it in action check out `https://ui.cluster-name.hasura-app.io/data` (replace cluster-name with your cluster name) and check out `api.js` at `services/ui/app/src/api.js` to see how the calls are being made. You can also check out all the apis provided by Hasura from the api console by heading over to the `API EXPLORER` tab.
+The react app uses these data apis to show the respective data, to see it in action check out `https://ui.cluster-name.hasura-app.io/data` (replace cluster-name with your cluster name) and check out `api.js` at `microservices/ui/app/src/api.js` to see how the calls are being made. You can also check out all the apis provided by Hasura from the api console by heading over to the `API EXPLORER` tab.
 
 For eg, to fetch a list of all articles from the article table, you have to send the following JSON request to the data api endpoint -> `https://data.cluster-name.hasura-app.io/v1/query` (replace `cluster-name` with your cluster name)
 
@@ -164,7 +164,7 @@ In case you want to use another language/framework for your custom service. Take
 
 If you have an existing create-react-app and would like to migrate it to Hasura:
 
-- Replace the `services/ui/app` directory with your app directory.
+- Replace the `microservices/ui/app` directory with your app directory.
 - Ensure that the structure of the ui directory is
 
 ```
@@ -190,7 +190,7 @@ Everytime you push, your code will get deployed on a public URL. However, for fa
 ### Testing your react app locally
 
 ```sh
-$ cd services/ui/app
+$ cd microservices/ui/app
 $ npm start
 ```
 
@@ -200,7 +200,7 @@ Since we are directly accessing the internal data endpoint (Read more about inte
 
 ```sh
 $ hasura forward -s data -n hasura --local-port 6432 --remote-port 8080
-$ cd services/api/app
+$ cd microservices/api/app
 $ ENVIRONMENT=dev npm start
 ```
 
@@ -230,7 +230,7 @@ The project (a.k.a. project directory) has a particular directory structure and 
 │   ├── routes.yaml
 │   └── session-store.yaml
 ├── migrations/
-└── services
+└── microservices
     ├── api/
     └── ui/
 ```
