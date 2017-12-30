@@ -27,6 +27,12 @@ This quickstart project comes with the following by default:
 ## Quickstart
 
 Follow this section to get this project working. Before you begin, ensure you have the latest version of hasura cli tool installed.
+Make sure that you are logged in before cloning the project:
+
+```sh
+$ hasura login
+```
+
 
 ### Step 1: Getting the project
 
@@ -36,8 +42,8 @@ $ cd hello-react
 ```
 
 The above command does the following:
-1. Creates a new folder in the current working directory called `hello-react`
-2. Creates a new trial hasura cluster for you and sets that cluster as the default cluster for this project
+1. Creates a new folder in the current working directory called `hello-react`.
+2. Creates a new hasura cluster, under your logged in account, for you and sets that cluster as the default cluster for this project.
 3. Initializes `hello-react` as a git repository and adds the necessary git remotes.
 
 ### Step 2: Getting cluster information
@@ -62,9 +68,6 @@ Cluster State:      Synced
 Keep a note of your cluster name. Alternatively, you can also go to your [hasura dashboard](https://dashboard.hasura.io) and see the clusters you have.
 
 ### Step 3: Deploying on a hasura cluster
-
-1. Open the package.json file at `microservices/ui/app/`
-2. Find the key `scripts` and then replace `cluster-name` with the name of your cluster (in this case, `h34-fisherman22-stg`) in the `build` & `start` key.
 
 To deploy your app:
 
@@ -191,7 +194,7 @@ Everytime you push, your code will get deployed on a public URL. However, for fa
 
 ```sh
 $ cd microservices/ui/app
-$ npm start
+$ npm i && npm start
 ```
 
 ### Testing your custom service locally
