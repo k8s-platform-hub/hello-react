@@ -39,6 +39,7 @@ The above command does the following:
 1. Creates a new folder in the current working directory called `hello-react`
 2. Creates a new trial hasura cluster for you and sets that cluster as the default cluster for this project
 3. Initializes `hello-react` as a git repository and adds the necessary git remotes.
+4. Adds your SSH public key to the cluster so that you can push to it.
 
 ### Step 2: Getting cluster information
 
@@ -75,6 +76,8 @@ $ git push hasura master
 ```
 
 Once the above commands are executed successfully, head over to `https://ui.cluster-name.hasura-app.io` (in this case `https://ui.h34-fisherman22-stg.hasura-app.io`) to view your react app.
+
+Alternatively, you can use `hasura microservice open ui` to open the browser and navigate to that link automatically.
 
 ### Api console
 
