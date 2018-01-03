@@ -27,12 +27,6 @@ This quickstart project comes with the following by default:
 ## Quickstart
 
 Follow this section to get this project working. Before you begin, ensure you have the latest version of hasura cli tool installed.
-Make sure that you are logged in before cloning the project:
-
-```sh
-$ hasura login
-```
-
 
 ### Step 1: Getting the project
 
