@@ -112,8 +112,8 @@ author_id | integer NOT NULL
 
 Alternatively, you can also view the schema for these tables on the api console by heading over to the tab named `data` as shown in the screenshots below.
 
-![Data1](https://github.com/hasura/hello-react/blob/master/readme-assets/data-1.png "Data1")
-![Data2](https://github.com/hasura/hello-react/blob/master/readme-assets/data-1.png "Data2")
+![Data1](https://raw.githubusercontent.com/hasura/hello-react/master/readme-assets/data-1.png "Data1")
+![Data2](https://raw.githubusercontent.com/hasura/hello-react/master/readme-assets/data-2.png "Data2")
 
 This means that you can now leverage the hasura data queries to perform CRUD operations on these tables.
 
