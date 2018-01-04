@@ -112,8 +112,8 @@ author_id | integer NOT NULL
 
 Alternatively, you can also view the schema for these tables on the api console by heading over to the tab named `data` as shown in the screenshots below.
 
-![alt text][data1]
-![alt text][data2]
+![Data1](https://github.com/hasura/hello-react/blob/master/readme-assets/data-1.png "Data1")
+![Data2](https://github.com/hasura/hello-react/blob/master/readme-assets/data-1.png "Data2")
 
 This means that you can now leverage the hasura data queries to perform CRUD operations on these tables.
 
@@ -205,53 +205,4 @@ Since we are directly accessing the internal data endpoint (Read more about inte
 $ hasura forward -s data -n hasura --local-port 6432 --remote-port 8080
 $ cd microservices/api/app
 $ ENVIRONMENT=dev npm start
-```
-
-[data1]: https://github.com/hasura/hello-react/blob/master/readme-assets/data-1.png
-[data2]: https://github.com/hasura/hello-react/blob/master/readme-assets/data-2.png
-
-## Project structure
-
-### Files and Directories
-
-The project (a.k.a. project directory) has a particular directory structure and it has to be maintained strictly, else `hasura` cli would not work as expected. A representative project is shown below:
-
-```
-.
-├── hasura.yaml
-├── clusters.yaml
-├── conf
-│   ├── authorized-keys.yaml
-│   ├── auth.yaml
-│   ├── ci.yaml
-│   ├── domains.yaml
-│   ├── filestore.yaml
-│   ├── gateway.yaml
-│   ├── http-directives.conf
-│   ├── notify.yaml
-│   ├── postgres.yaml
-│   ├── routes.yaml
-│   └── session-store.yaml
-├── migrations/
-└── microservices
-    ├── api/
-    └── ui/
-```
-
-### `hasura.yaml`
-
-This file contains some metadata about the project, namely a name, description and some keywords. Also contains `platformVersion` which says which Hasura platform version is compatible with this project.
-
-### `clusters.yaml`
-
-Info about the clusters added to this project can be found in this file. Each cluster is defined by it's name allotted by Hasura. While adding the cluster to the project you are prompted to give an alias, which is just hasura by default. The `kubeContext` mentions the name of kubernetes context used to access the cluster, which is also managed by hasura. The `config` key denotes the location of cluster's metadata on the cluster itself. This information is parsed and cluster's metadata is appended while conf is rendered. `data` key is for holding custom variables that you can define. A sample `clusters.yaml` file would look like so:
-
-```yaml
-- name: h34-ambitious93-stg
-  alias: hasura
-  kubeContext: h34-ambitious93-stg
-  config:
-    configmap: controller-conf
-    namespace: hasura
-  data: null  
 ```
