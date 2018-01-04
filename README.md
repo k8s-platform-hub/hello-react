@@ -185,24 +185,3 @@ ui
 - `git push hasura master`
 
 Now your existing app should be running on `https://ui.cluster-name.hasura-app.io`
-
-## Local development
-
-Everytime you push, your code will get deployed on a public URL. However, for faster iteration you should locally test your changes.
-
-### Testing your react app locally
-
-```sh
-$ cd microservices/ui/app
-$ npm start
-```
-
-### Testing your custom service locally
-
-Since we are directly accessing the internal data endpoint (Read more about internal and external endpoints here) in the nodejs-express app. We need to forward our requests to the port at which the data service is running.
-
-```sh
-$ hasura forward -s data -n hasura --local-port 6432 --remote-port 8080
-$ cd microservices/api/app
-$ ENVIRONMENT=dev npm start
-```
