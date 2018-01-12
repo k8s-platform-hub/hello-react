@@ -14,9 +14,12 @@
     "uuid": "^3.1.0"
   },
   "scripts": {
-    "start": "REACT_APP_CLUSTER_NAME=h34-fisherman22-stg react-scripts start",
-    "build": "REACT_APP_CLUSTER_NAME=h34-fisherman22-stg react-scripts build",
+    "start": "cross-env REACT_APP_CLUSTER_NAME=aviator63 react-scripts start",
+    "build": "cross-env REACT_APP_CLUSTER_NAME=aviator63 react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.3"
   }
 }
