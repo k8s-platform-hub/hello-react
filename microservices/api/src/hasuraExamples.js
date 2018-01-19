@@ -4,7 +4,7 @@ var config = require('./config');
 var request = require('request');
 
 router.route("/").get(function (req, res) {
-  res.send("Hello world from app")
+  res.send("Hello-React")
 })
 
 router.route("/get_articles").get(function (req, res) {
