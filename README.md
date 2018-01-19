@@ -198,7 +198,7 @@ Everytime you push, your code will get deployed on a public URL. However, for fa
 
 ```sh
 $ cd microservices/ui/app
-$ npm start
+$ npm i && npm start                #npm i first, since you need to install the nodules excluded by the gitignore.
 ```
 
 ### Testing your custom service locally
