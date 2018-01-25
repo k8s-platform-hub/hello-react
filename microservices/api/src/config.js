@@ -1,6 +1,6 @@
 let projectConfig = {
     url: {
-        data: 'http://data.hasura/v1/query',
+        data: 'http://data.' + process.env.CLUSTER_NAME + '.hasura-app.io/v1/query'
     }
 }
 
