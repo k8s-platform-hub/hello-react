@@ -38,7 +38,7 @@ CMD ["serve", "-s", "build", "-p", "8080"]
 * The `hasura quickstart` command clones the project repository to your local computer, and also creates a **free Hasura cluster**, where the project will be hosted for free.
 * A git remote (called hasura) is created and initialized with your project directory.
 * Now get your cluster name using `hasura cluster status` and modify the package.json file inside `microservices/ui/app/package.json`. Assign your cluster name to `REACT_APP_CLUSTER_NAME` environment variable.
-* Run `git add .`, `git commit`, and `git push hasura master`.
+* Run `git add .`, `git commit`, and `git push hasura master`. This will push all your files to the cluster and deploy an optimized production build version of your App.
 * Run the below command to open your shiny new deployed react app.
 ``` shell
 $ hasura microservice open ui
@@ -54,7 +54,7 @@ $ hasura microservice open ui
 To test and make changes to this app locally, follow the below instructions.
 * Open Terminal and `cd` into the project folder
 * Run `npm install` to install all the project dependencies
-* Run `npm start` and `npm build` in the terminal to build and run it.
+* Run `npm start` this will start hot reloading 
 * Make changes to the app, and see the changes in the browser
 
 ## View server logs
