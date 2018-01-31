@@ -54,8 +54,9 @@ $ hasura microservice open ui
 To test and make changes to this app locally, follow the below instructions.
 * Open Terminal and `cd` into the project folder
 * Run `npm install` to install all the project dependencies
-* Run `npm start` this will start hot reloading 
+* Run `npm start` this will start live reloading 
 * Make changes to the app, and see the changes in the browser
+* Run `npm run build` to create a build version of the app
 
 ## View server logs
 
