@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: anonymity22-hasura
+  data: null
+  kubeContext: anonymity22
+  name: anonymity22
