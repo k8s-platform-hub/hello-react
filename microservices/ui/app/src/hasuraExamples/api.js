@@ -108,7 +108,7 @@ const uploadFile = (file, authToken) => {
       body: file,
       headers: {
         'Content-Type': file.type,
-        'AUthorization': 'Bearer ' + authToken
+        'Authorization': 'Bearer ' + authToken
       }
     };
   return fetch(projectConfig.url.filestore + "/" + fileId, options)
@@ -120,9 +120,31 @@ const uploadFile = (file, authToken) => {
   })
 }
 
+const getUserDetails = () => {
+  var requestOptions = {
+      "method": "GET",
+      "headers": {
+          "Content-Type": "application/json",
+          "credentials": 'include'
+      }
+  };
+  return fetch(projectConfig.url.auth + '/user/info', requestOptions)
+  .then(function(response) {
+    if (response.ok) {
+      return response.json();
+    } else if (response.status === 401) {
+      window.location = projectConfig.url.uiKit;
+    }
+  })
+  .catch(function(error) {
+    console.log('Request Failed:' + error);
+  });
+}
+
 export {
   getArticle,
   getArticleList,
   authenticateUser,
-  uploadFile
+  uploadFile,
+  getUserDetails
 }
