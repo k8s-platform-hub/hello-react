@@ -254,7 +254,7 @@ You can test out the filestore APIs on the `API Explorer` and use the `Code Gene
 ![Filestore](https://raw.githubusercontent.com/hasura/hello-android/master/readme-assets/filestore-explore.png)
 &nbsp;
 
-To see this being used in the react app, navigate to the `/filestore` route. You can find the source code for this feature implementation in `microservices/ui/app/src/hasuraEx/Filestore.js`
+To see this being used in the react app, navigate to the `/filestore` route. You can find the source code for this feature implementation in `microservices/ui/app/src/hasuraExamples/Filestore.js`
 
 
 &nbsp;
