@@ -7,7 +7,7 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import LinearProgress from 'material-ui/LinearProgress';
 import {Card, CardText} from 'material-ui/Card';
-import { saveOffline, getSavedToken } from './config';
+import { saveOffline } from './config';
 import { authenticateUser } from './api';
 
 

@@ -128,17 +128,7 @@ const getUserDetails = () => {
           "credentials": 'include'
       }
   };
-  return fetch(projectConfig.url.auth + '/user/info', requestOptions)
-  .then(function(response) {
-    if (response.ok) {
-      return response.json();
-    } else if (response.status === 401) {
-      window.location = projectConfig.url.uiKit;
-    }
-  })
-  .catch(function(error) {
-    console.log('Request Failed:' + error);
-  });
+  return fetch(projectConfig.url.auth + '/user/info', requestOptions);
 }
 
 export {

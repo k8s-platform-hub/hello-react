@@ -1,6 +1,6 @@
 import React from 'react';
-import {Card, CardTitle, CardText} from 'material-ui/Card';
-import Divider from 'material-ui/Divider';
+import {Card, CardText} from 'material-ui/Card';
+import { projectConfig } from './config';
 
 import {getUserDetails} from './api';
 
@@ -19,19 +19,24 @@ class UserInfo extends React.Component {
       ...this.state,
       isLoading: true
     })
-    getUserDetails().then(userDetails => {
-      if (!userDetails) {
-        this.setState({
-          isLoading: false,
-          error: 'Something went wrong'
-        });
-        return;
+    getUserDetails()
+    .then(function(response) {
+      if (response.ok) {
+        return response.json();
+      } else if (response.status === 401) {
+        window.location = projectConfig.url.uiKit;
       }
+    })
+    .then(function(json) {
+      console.log(JSON.stringify(json));
       this.setState((prevState) => ({
         isLoading: false,
         error: null,
-        userDetails: userDetails
+        userDetails: json
       }));
+    })
+    .catch(function(error) {
+      console.log('Request Failed:' + error);
     });
   }
 
@@ -44,7 +49,7 @@ class UserInfo extends React.Component {
 
     if (this.state.error) {
       return (
-        <div>this.state.error</div>
+        <div>{this.state.error}</div>
       );
     }
     return (
@@ -54,7 +59,7 @@ class UserInfo extends React.Component {
             This component utilizes the hasura data APIs. In this example, it fetches a list of articles from the articles table which has been pre created and already loaded with some dummy data. To check out how the data API is used to render this view, check out services/ui/app/src/hasuraExamples/Data.js. A good exercise would be to also show the author details for each of these articles.
           </CardText>
         </Card>
-        <h1>Welcome ! {this.state.userDetails.username}</h1>
+        <h1>Welcome ! {this.state.userDetails}</h1>
       </div>
     );
   }

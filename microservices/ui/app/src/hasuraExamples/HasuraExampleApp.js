@@ -16,13 +16,13 @@ class HasuraExampleApp extends React.Component {
             <Route exact path="/" render={() =>
                 <div>
                   <h1>Welcome to react app</h1>
-                  <h4>Navigate to /authkit to checkout the Auth UI Kit</h4>
+                  <h4>Navigate to /user-info to checkout the Auth UI Kit</h4>
                   <h4>Navigate to /auth to check out a simple implementation of authentication</h4>
                   <h4>Navigate to /data to see how data can be queried from tables to be used in your app</h4>
                   <h4>Navigate to /filestore to upload files</h4>
                 </div>
               }/>
-            <Route exact path="/authkit" component={UserInfo}/>
+            <Route exact path="/user-info" component={UserInfo}/>
             <Route exact path="/data" component={Data}/>
             <Route exact path="/auth" component={Auth}/>
             <Route exact path="/filestore" component={Filestore}/>

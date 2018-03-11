@@ -156,7 +156,7 @@ It comes with a UI for Signup and Login pages out of the box, which takes care o
 
 ![Auth UI](https://docs.hasura.io/0.15/_images/uikit-dark.png)
 
-Navigate to the `/authkit` path of the react app to see the Auth UI Kit in action.
+Navigate to the `/user-info` path of the react app to see the Auth UI Kit in action.
 
 >You can read more about the AUTH UI Kit [here](https://docs.hasura.io/0.15/manual/users/uikit.html).
 
