@@ -1,4 +1,4 @@
-var clusterName = location.href.split(".")[1];
+var clusterName = window.location.href.split(".")[1];
 
 var projectConfig = {
   url: {
