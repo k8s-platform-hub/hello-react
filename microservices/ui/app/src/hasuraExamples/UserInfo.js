@@ -10,7 +10,7 @@ class UserInfo extends React.Component {
     super()
     this.state = {
       error: null,
-      isLoading: false
+      isLoading: true
     };
   }
 
