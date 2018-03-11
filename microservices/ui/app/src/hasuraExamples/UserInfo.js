@@ -33,7 +33,7 @@ class UserInfo extends React.Component {
       context.setState((prevState) => ({
         isLoading: false,
         error: null,
-        userDetails: json
+        userDetails: JSON.parse(json)
       }));
     })
     .catch(function(error) {
@@ -65,7 +65,7 @@ class UserInfo extends React.Component {
             This component utilizes the hasura data APIs. In this example, it fetches a list of articles from the articles table which has been pre created and already loaded with some dummy data. To check out how the data API is used to render this view, check out services/ui/app/src/hasuraExamples/Data.js. A good exercise would be to also show the author details for each of these articles.
           </CardText>
         </Card>
-        <h1>Welcome !</h1>
+        <h1>Welcome ! {this.state.userDetails.username}</h1>
       </div>
     );
   }
