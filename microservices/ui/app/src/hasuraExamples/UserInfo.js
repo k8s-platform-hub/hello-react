@@ -33,7 +33,7 @@ class UserInfo extends React.Component {
       context.setState((prevState) => ({
         isLoading: false,
         error: null,
-        userDetails: JSON.parse(json)
+        userDetails: json
       }));
     })
     .catch(function(error) {
