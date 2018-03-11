@@ -125,8 +125,8 @@ const getUserDetails = () => {
       "method": "GET",
       "headers": {
           "Content-Type": "application/json",
-          "credentials": 'include'
-      }
+      },
+      "credentials": 'include'
   };
   return fetch(projectConfig.url.auth + '/user/info', requestOptions);
 }
