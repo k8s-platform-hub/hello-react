@@ -162,8 +162,6 @@ Navigate to the `/authkit` path of the react app to see the Auth UI Kit in actio
 
 This particular example shows a Username/password based authentication. Hasura also provides other authentication providers like Email/password, mobile/otp, google, facebook etc. You can learn more about authentication and the various providers [here](https://docs.hasura.io/0.15/manual/auth/index.html).
 
->You can also implement your own UI for authentication and just consume the authentication endpoints given by Hasura. 
-
 ### API console
 
 The API Console is a web UI to help you manage and explore the various backend components provided by Hasura.
@@ -206,15 +204,92 @@ Choose the username and password that you would like to signup with and click on
 
 This will print out the code to make this API in `Javascript` using the `Fetch` library.
 
+### Storing and retrieving information from a database
 
-### Add a custom API
+Hasura comes with set of Data APIs to access the Postgres database which comes bundled with every Hasura cluster. The advantage of this system is that each time you create a table, you can instantly access and modify that table with HTTP APIs.
 
-Hasura project is composed of a set of microservices. These include certain Hasura microservices like, postgres, nginx, data API, auth API and more but can also include your own microservices.
+This quickstart by default comes with two tables `article` and `author` with some sample data. Let's take a look at how we can fetch data from one of these tables.
+
+**First**, head to the `API Explorer` and click on `/v1/query - Query Builder` in the panel on the left. In the query builder that comes up, click on `type` and choose `select` from the list that comes.
+
+![API Explorer Select](https://filestore.hasura.io/v1/file/35a48509-6d37-44bb-ae2f-ef4acc652c7a)
+
+**Next**, choose a `table`, in this case, let's go with `article`. Select all the columns. Let's also set a condition to fetch only the article with an `id` value of 1.
+
+ ![API Explorer Query](https://filestore.hasura.io/v1/file/950defac-eca0-4b16-98ae-5f922fb21f7d)
+
+
+Hit the `Send` button. You will receive the following response:
+
+```json
+[
+    {
+        "id": 1,
+        "title": "sem ut dolor dapibus gravida.",
+        "content": "Vestibulum accumsan neque et nunc. Quisque ornare tortor at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus nibh dolor, nonummy ac, feugiat non, lobortis quis, pede. Suspendisse dui. Fusce diam nunc, ullamcorper eu, euismod ac, fermentum vel, mauris. Integer sem elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed et libero. Proin mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet nec, imperdiet nec, leo. Morbi neque tellus, imperdiet non, vestibulum nec, euismod in, dolor. Fusce feugiat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam auctor, velit eget laoreet posuere, enim nisl",
+        "rating": 4
+    }
+]
+```
+
+As you can see the article has an `id` of 1. Alternatively, you can also take off the `where` clause completely and hit the `Send` button. In this case, you will get a list of all the articles from the `article` table.
+
+>Try out the `Generate API Code` button to generate the code to make this request in other languages and frameworks.
+
+Similarly, you can also `insert`, `update` and `delete` data from the tables. Moreover, every table you create, by default, have permissions on them which prevent anyone but an admin user from accessing or modifying the data. This is done to ensure that you don't accidentally open up your application data to the outside world unless you specifically want to.
+
+>To make the most out of the Data APIs, it is recommended that you go through the detailed [docs](https://docs.hasura.io/0.15/manual/data/index.html).
+
+
+To see the Data APIs being used in the react app, head to the `/data` route and the source code can be found in `microservices/ui/app/src/hasuraExamples/Data.js`
+
+
+### File upload and download
+
+Some apps require the ability to upload and download files, for eg: storing user profile pictures or if you are building an app like google drive. Hasura provides easy to use APIs to upload and download files as well. Under the `API Explorer` tab, explore the APIs under `File`
+
+You can test out the filestore APIs on the `API Explorer` and use the `Code Generator` to include it in your client side code.
+
+&nbsp;
+![Filestore](https://raw.githubusercontent.com/hasura/hello-android/master/readme-assets/filestore-explore.png)
+&nbsp;
+
+To see this being used in the react app, navigate to the `/filestore` route. You can find the source code for this feature implementation in `microservices/ui/app/src/hasuraEx/Filestore.js`
+
+
+&nbsp;
+>Go though the [docs](https://docs.hasura.io/0.15/manual/filestore/index.html), to know more about the filestore and to understand how you can set permissions on it. Currently, the permission defaults to allowing anyone to download files but only authenticated users are allowed to upload files.
+&nbsp;
+
+## Add a custom API
+
+Similar to how we have a custom microservice running our react app. We can also create another microservice which can host a server that can provide us with custom APIs based on our requirement.
+
 This quickstart comes with one such custom service written in `nodejs` using the `express` framework. Check it out in action at `https://api.cluster-name.hasura-app.io` . Currently, it just returns a "Hello-React" at that endpoint.
 
-* [Adding Microservice](https://docs.hasura.io/0.15/manual/custom-microservices/index.html)
+The source code for this nodejs server can be found in `microservices/api/src`.
 
-### Add data APIs
+#### Making changes and deploying
 
-Hasura comes with set of Data APIs to access the Postgres database which comes bundled with every Hasura cluster.
-Detailed docs of data APIs can be found [here](https://docs.hasura.io/0.15/manual/data/index.html).
+* To make changes, browse to `/microservices/api/app/src` and make the necessary changes.
+* Commit the changes, and perform `git push hasura master` to deploy the changes.
+
+### Local development
+
+To test and make changes locally, follow the below instructions.
+* Open Terminal and `cd` into `microservices/api/src`
+* Run `npm install` to install all the project dependencies
+* Run `node server.js` in the terminal to build and run it.
+* Make changes to the app, and see the changes in the browser
+
+### View server logs
+
+You can view the logs emitted by running the following:
+
+``` shell
+$ hasura microservice logs api
+```
+You can see the logs in your terminal, press `CTRL + C` to stop logging.
+
+
+>Alternatively, you can also add your own custom microservice, follow the [documentation](https://docs.hasura.io/0.15/manual/custom-microservices/index.html) to know more.
