@@ -9,7 +9,7 @@ class UserInfo extends React.Component {
   constructor() {
     super()
     this.state = {
-      articles: [],
+      error: null,
       isLoading: false
     };
   }
@@ -20,9 +20,16 @@ class UserInfo extends React.Component {
       isLoading: true
     })
     getUserDetails().then(userDetails => {
-      //Update the state with the fetched articles
+      if (!userDetails) {
+        this.setState({
+          isLoading: false,
+          error: 'Something went wrong'
+        });
+        return;
+      }
       this.setState((prevState) => ({
         isLoading: false,
+        error: null,
         userDetails: userDetails
       }));
     });
@@ -32,6 +39,12 @@ class UserInfo extends React.Component {
     if (this.state.isLoading) {
       return (
         <div>Loading</div>
+      );
+    }
+
+    if (this.state.error) {
+      return (
+        <div>this.state.error</div>
       );
     }
     return (

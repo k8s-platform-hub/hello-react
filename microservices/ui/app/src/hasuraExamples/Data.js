@@ -37,7 +37,7 @@ class Data extends React.Component {
       <div>
         <Card>
           <CardText>
-            This component utilizes the hasura data APIs. In this example, it fetches a list of articles from the articles table which has been pre created and already loaded with some dummy data. To check out how the data API is used to render this view, check out services/ui/app/src/hasuraExamples/Data.js. A good exercise would be to also show the author details for each of these articles. 
+            This component utilizes the hasura data APIs. In this example, it fetches a list of articles from the articles table which has been pre created and already loaded with some dummy data. To check out how the data API is used to render this view, check out services/ui/app/src/hasuraExamples/Data.js. A good exercise would be to also show the author details for each of these articles.
           </CardText>
         </Card>
         <h1>Articles</h1>
@@ -46,8 +46,7 @@ class Data extends React.Component {
           <div key={i}>
             <Card style={articleCardStyle}>
               <CardTitle titleStyle='bold' title={article.title}/>
-              <CardText
-                color='#BF000000'>
+              <CardText>
                 {article.content}
               </CardText>
             </Card>
