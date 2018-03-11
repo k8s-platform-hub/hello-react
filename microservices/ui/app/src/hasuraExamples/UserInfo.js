@@ -15,6 +15,7 @@ class UserInfo extends React.Component {
   }
 
   componentDidMount() {
+    const context = this;
     this.setState({
       ...this.state,
       isLoading: true
@@ -29,7 +30,7 @@ class UserInfo extends React.Component {
     })
     .then(function(json) {
       console.log(JSON.stringify(json));
-      this.setState((prevState) => ({
+      context.setState((prevState) => ({
         isLoading: false,
         error: null,
         userDetails: json
