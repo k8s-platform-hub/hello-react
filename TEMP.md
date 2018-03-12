@@ -125,7 +125,7 @@ Everything related to a microservice can be found inside the `microservices` dir
         └── k8s.yaml
 ```
 
-Everything to do with the react microservice resides inside the `ui` directory. Inside the `ui` directory, you will find:
+The name of the directory inside `microservices` is the name of the microservice. Hence, everything to do with the react microservice resides inside the `ui` directory. Inside the `ui` directory, you will find:
 
 - An `app` directory:
 
@@ -264,7 +264,7 @@ Hasura provides instant authentication APIs that you can directly use in your ap
 From the panel on the left, click on `SignUp` under `Username/Password`. Next, fill up your required username and password.
 
 &nbsp;
-![AuthSignUp.png](https://filestore.hasura.io/v1/file/43ec2c42-432f-4ca9-80c2-e95817695c28)
+![AuthSignUp.png](https://filestore.hasura.io/v1/file/b52aaa36-75a4-40e6-8b55-c7c3c0ddac4a)
 &nbsp;
 
 We are going with the username "jacksniper" and password "jack@sniper". You can choose any username and password combination. Once you have decided on your username and password, hit on the `Send` button to Sign Up. Your response would look like:
