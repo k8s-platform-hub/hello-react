@@ -125,7 +125,11 @@ Everything related to a microservice can be found inside the `microservices` dir
         └── k8s.yaml
 ```
 
-Everything to do with the react microservice resides inside the `ui` directory. The `app` directory contains the create-react-app source code. The content inside the `app` directory is exactly what you would get if you were to generate a new react app using create-react-app. Apart from the `app` directory, you will also find two files
+Everything to do with the react microservice resides inside the `ui` directory. Inside the `ui` directory, you will find:
+
+- An `app` directory:
+
+The `app` directory contains the create-react-app source code. The content inside the `app` directory is exactly what you would get if you were to generate a new react app using create-react-app.
 
 - `Dockerfile`
 
