@@ -1,47 +1,22 @@
-This is a react quickstart which will have you deploying a fully working react app in minutes using Hasura. Moreover, the included react app also utilizes the various backend components of Hasura to implement features like:
-- Authentication
-- Storing and retrieving data from a database
-- Uploading and downloading files
+This is a react quickstart which will have you deploying a basic react app in minutes using Hasura.
 
 Follow along with the tutorial to learn how everything works to make the most out of Hasura.
 
 ## What does this come with?
 
-* A working React.js Hello World Project
+* A working React.js Project created using [create react app](https://github.com/facebook/create-react-app)
   * Automatic reloading and bundling
-  * All *create-react-app* feature
+  * All *create-react-app* features
   * react-scripts with inbuilt webpack bundling
-* Deployed with the [**serve**](https://www.npmjs.com/package/serve) package
-* **Dockerfile** (automatically used by Hasura for deployment)
+  * Deployed with the [**serve**](https://www.npmjs.com/package/serve) package
+* A basic nodejs express server
 
-```
-FROM node:8
-
-RUN apt-get update && apt-get install -y build-essential python
-
-#Install deps
-RUN mkdir /app
-COPY app/package.json /app/package.json
-RUN cd /app && npm install
-RUN npm -g install serve
-
-#Add all source code
-ADD app /app/
-RUN cd /app && npm run build
-
-WORKDIR /app
-
-#Default command
-CMD ["serve", "-s", "build", "-p", "8080"]
-```
-* A simple Nodejs Express server
-
-## Deployment instructions
-
-Before you continue:
+## Pre-requisites
 
 - Ensure that you have the HasuraCLI installed on your machine before you continue. If not, you can find instructions to install it [here](https://docs.hasura.io/0.15/manual/install-hasura-cli.html).
 - Log into Hasura by running `$ hasura login` on your command shell.
+
+## Deployment instructions
 
 ### Basic deployment:
 
@@ -66,6 +41,12 @@ $ git push hasura master
 $ hasura microservice open ui
 ```
 
+Similarly, to open the node app:
+
+```shell
+$ hasura microservice open api
+```
+
 ### Code Structure
 
 The contents inside the `hello-react` directory are what constitutes a `Hasura Project`. A `Hasura Project` is designed in such a way that all the configurations to your cluster as well the source code for your app resides within the `Hasura Project`. This simple design brings in the advantage of having everything you do under version control and helps with easy collaboration with other developers.
@@ -76,7 +57,7 @@ The source code for the `react` app can be found inside the `microservices/ui/ap
 
 #### Making changes and deploying
 
-* To make changes to the project, browse to `/microservices/ui/app/src` and edit the `HasuraExampleApp.js` file in `hasuraExamples` folder according to your app.
+* To make changes to the project, browse to `/microservices/ui/app/src` and make edits as we needed.
 * Commit the changes, and perform `git push hasura master` to deploy the changes.
 
 ### Local development
@@ -84,7 +65,7 @@ The source code for the `react` app can be found inside the `microservices/ui/ap
 To test and make changes to this app locally, follow the below instructions.
 * Open Terminal and `cd` into `microservices/ui/app`
 * Run `npm install` to install all the project dependencies
-* Run `npm start` and `npm build` in the terminal to build and run it.
+* Run `npm start` in the terminal to run it.
 * Make changes to the app, and see the changes in the browser
 
 ### View server logs
@@ -96,13 +77,6 @@ $ hasura microservice logs ui
 ```
 You can see the logs in your terminal, press `CTRL + C` to stop logging.
 
-### Managing app dependencies
-
-* System dependencies, like changing the web-server can be made in the Dockerfile
-* npm/yarn deps can be managed by editing **package.json**.
-
-If changes have been done to the dependencies, `git commit`, and perform `git push hasura master` to deploy the changes.
-
 ### Migrating your existing React.js app
 
 * If you have an existing react app which you would like to deploy, replace the code inside `/microservices/ui/src/` according to your app.
@@ -111,7 +85,7 @@ If changes have been done to the dependencies, `git commit`, and perform `git pu
 
 #### Understanding the Dockerfile
 
-Understanding what the Dockerfile does will help you modify it based on your requirement.
+Understanding what the Dockerfile does will help you modify it based on your requirement. The Dockerfile for the react app is present in `microservices/ui/`
 
 ```
 # Step 1: Pulls a simple ubuntu image with node 8 installed in it
@@ -255,7 +229,6 @@ You can test out the filestore APIs on the `API Explorer` and use the `Code Gene
 &nbsp;
 
 To see this being used in the react app, navigate to the `/filestore` route. You can find the source code for this feature implementation in `microservices/ui/app/src/hasuraExamples/Filestore.js`
-
 
 &nbsp;
 >Go though the [docs](https://docs.hasura.io/0.15/manual/filestore/index.html), to know more about the filestore and to understand how you can set permissions on it. Currently, the permission defaults to allowing anyone to download files but only authenticated users are allowed to upload files.
