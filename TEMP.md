@@ -174,6 +174,7 @@ This is the kubernetes spec file that is used by Hasura. You do not need to unde
 Similarly, you can examine the `microservices/api` directory as well and you will find that it has a similar structure as the `microservices/ui` directory in the sense that there is a directory(`app` for react and `src` for node) which consists of all the source code for the app being deployed as a microservice, a `Dockerfile` and a `k8s.yaml` file.
 
 >Understanding node-express's Dockerfile
+
 ```Dockerfile
 # Step 1: Pulls a simple ubuntu image with node 8 installed in it
 FROM node:8
@@ -207,7 +208,7 @@ Similarly, the source code for the nodejs server is inside the `microservices/ap
 
 Create-react-app can be updated by updating the `react-scripts` version in the `package.json` file located at `microservices/ui/app/`.
 
-```json
+```
 ....
 "dependencies": {
   ....
