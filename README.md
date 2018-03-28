@@ -334,3 +334,37 @@ Some apps require the ability to upload and download files, for eg: storing user
 You can test out the filestore APIs on the `API Console`. (Open the `API Console` by running `$ hasura api-console` inside your project directory)
 
 ![Filestore](https://filestore.hasura.io/v1/file/a090fb6f-e62c-4aa2-aebf-0a9d07cb8bb0)
+
+## Deploying other microservices
+
+Sometimes you may also need to write your own custom APIs using a nodejs-express server or have a cron job running. You can add microservices from other quickstarts into your project
+
+- To add a nodejs-express microservice
+
+```bash
+$ hasura microservice clone api --from hasura/hello-nodejs-express
+```
+
+You will now have this microservice inside your microservices/api directory. You can find the source code for the nodejs-express server inside microservices/api/src/server.js
+
+Next, we have to ensure that HasuraCtl knows that this microservice needs to be git pushed. To do this, we need to add configuration to your conf/ci.yaml file so that git push hasura master will automatically deploy your source code, build the docker image, and rollout the update!
+
+```bash
+$ hasura conf generate-remote cron >> conf/ci.yaml
+```
+
+To expose the microservice via an external URL
+
+```bash
+$ hasura conf generate-route cron >> conf/routes.yaml
+```
+
+To deploy this microservice to your cluster:
+
+```bash
+# Ensure that you are inside your project directory
+git add microservices/cron && git commit -m "Added nodejs express microservice"
+git push hasura master
+```
+
+>You can read more about microservices in our [docs](https://docs.hasura.io/0.15/manual/microservices/index.html).
