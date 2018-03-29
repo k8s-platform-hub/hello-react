@@ -29,10 +29,3 @@ remotes:
       dockerBuild:
         dockerfilePath: microservices/ui/Dockerfile
         contextPath: microservices/ui
-  - name: api
-    namespace: '{{ cluster.metadata.namespaces.user }}'
-    containers:
-    - name: api
-      dockerBuild:
-        dockerfilePath: microservices/api/Dockerfile
-        contextPath: microservices/api
