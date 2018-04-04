@@ -168,6 +168,29 @@ To add environment variables for the react app:
 
 In case you want to template your environment variables, check out the docs [here](https://docs.hasura.io/0.15/manual/project/directory-structure/microservices/k8s.yaml.html#environment-variables).
 
+### Hot reloading
+
+Change the line starting with `CMD` in `Dockerfile` to the following:
+
+```dockerfile
+CMD ["npm", "start"]
+```
+
+Git push the changes and start the `sync` command:
+
+```bash
+$ git add microservices/ui/Dockerfile
+$ git commit -m "enable hot reloading"
+$ git push hasura master
+$ hasura microservices sync ui microservices/ui/app/src:/app/src
+```
+
+In a new terminal, execute the command to open the microservice in a browser and make some changes to code to see it deployed live on the browser:
+
+```bash
+$ hasura microservice open ui
+# edit some files inside src to see the changes live
+```
 
 ## Database and using GraphQL
 

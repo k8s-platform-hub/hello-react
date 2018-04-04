@@ -1,6 +1,8 @@
 # Step 1: Pulls a simple ubuntu image with node 8 installed in it
 FROM node:8
 
+ENV PORT 8080
+
 # Step 2: Make a new directory called "app"
 RUN mkdir /app
 
@@ -23,4 +25,13 @@ RUN cd /app && npm run build
 WORKDIR /app
 
 # Step 9: Serve the app at port 8080 using the serve package
-CMD ["serve", "-s", "build", "-p", "8080"]
+# CMD ["serve", "-s", "build", "-p", "8080"]
+
+# Step 9: Hot reloading
+# Comment line 26 and un-comment the next line to enable hot reloading:
+CMD ["npm", "start"]
+
+# After un-commenting the file above, git push and execute the following command:
+# $ hasura microservice sync ui microservice/ui/app/src:/app/src
+# Open the microservice in a new tab and make some changes to files in src to see it live:
+# $ hasura microservice open ui

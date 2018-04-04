@@ -3,5 +3,5 @@
     configmap: controller-conf
     namespace: hasura
   data: null
-  kubeContext: continuously32
-  name: continuously32
+  kubeContext: h34-herself71-stg
+  name: h34-herself71-stg
