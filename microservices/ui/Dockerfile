@@ -25,11 +25,11 @@ RUN cd /app && npm run build
 WORKDIR /app
 
 # Step 9: Serve the app at port 8080 using the serve package
-# CMD ["serve", "-s", "build", "-p", "8080"]
+CMD ["serve", "-s", "build", "-p", "8080"]
 
 # Step 9: Hot reloading
-# Comment line 26 and un-comment the next line to enable hot reloading:
-CMD ["npm", "start"]
+# Comment line 28 and un-comment the next line to enable hot reloading:
+# CMD ["npm", "start"]
 
 # After un-commenting the file above, git push and execute the following command:
 # $ hasura microservice sync ui microservice/ui/app/src:/app/src
