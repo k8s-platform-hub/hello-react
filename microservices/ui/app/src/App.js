@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
   render() {
-    const clusterName = process.env.REACT_APP_CLUSTER_NAME || 'NoClusterName';
+    // const clusterName = process.env.REACT_APP_CLUSTER_NAME || 'NoClusterName';
     return (
       <div className="App">
         <header className="App-header">
