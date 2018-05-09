@@ -1,7 +1,6 @@
+clusters:
 - alias: hasura
-  config:
-    configmap: controller-conf
-    namespace: hasura
   data: null
-  kubeContext: h34-herself71-stg
-  name: h34-herself71-stg
+  infra:
+    provider: hasura-free
+version: v1
